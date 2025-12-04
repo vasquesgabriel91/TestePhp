@@ -7,5 +7,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/fazerPedidos', [pedidosController::class, 'create'])->name('makePedidos');
+Route::get('/fazerPedidos', [pedidosController::class, 'create'])->name('pedidos.create');
 Route::post('/storePedidos', [pedidosController::class, 'store'])->name('pedidos.store');
