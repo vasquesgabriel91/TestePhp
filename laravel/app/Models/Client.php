@@ -20,11 +20,9 @@ class Client extends Model
         'updated_at' => 'datetime',
     ];
 
-    /**
-     * Relacionamento: Um cliente tem muitos pedidos
-     */
-    public function pedidos(): HasMany
+
+    public function produto(): HasMany
     {
-        return $this->hasMany(pedido::class);
+        return $this->hasMany(produto::class);
     }
 }

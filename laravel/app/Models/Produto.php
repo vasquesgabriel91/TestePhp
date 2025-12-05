@@ -5,17 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Pedido extends Model
+class Produto extends Model
 {
-    protected $table = 'pedidos';
+    protected $table = 'produto';
 
     protected $fillable = [
-        'client_id',
-        'dtPedido',
-        'codBarras',
         'nomeProduto',
+        'codBarras',
         'valorUnitario',
-        'qtd',
     ];
 
     protected $casts = [
@@ -23,7 +20,6 @@ class Pedido extends Model
         'valorUnitario' => 'float',
         'qtd' => 'integer',
     ];
-
 
     public function client(): BelongsTo
     {
