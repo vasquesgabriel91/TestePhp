@@ -20,10 +20,8 @@
 <div style="padding: 20px; font-family: Arial, sans-serif;">
     <h2>Menu de Produtos</h2>
     <ul style="list-style: none; padding: 0;">
-        <li><a href="{{ route('produto.index') }}">Ver todos os produtos</a></li>
+        <li><a href="{{ route('client.create') }}">criar cliente</a></li>
         <li><a href="{{ route('produto.create') }}">Criar novo produto</a></li>
-        {{-- Se você quiser links de edição, eles geralmente ficam na lista de produtos --}}
-        {{-- <li><a href="{{ route('produto.edit', 1) }}">Editar produto #1</a></li> --}}
     </ul>
 </div>
 

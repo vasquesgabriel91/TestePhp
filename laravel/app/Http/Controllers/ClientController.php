@@ -20,8 +20,11 @@ class ClientController extends Controller
             'cpf' => 'required|string|size:11',
             'email' => 'nullable|email|max:50',
         ]);
-        Client::create($request->all());
-        return redirect()->route('welcome')->with('success', 'Produto criado com sucesso!');
+        $client = Client::create($request->all());
+        return response()->json([
+            'message' => 'Pedido criado com sucesso!',
+            'pedido' => $client,
+        ], 201);
 
     }
 }

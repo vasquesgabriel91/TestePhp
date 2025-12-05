@@ -2,12 +2,17 @@
 
 use App\Http\Controllers\PedidosController;
 use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\ClientController;
 
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
+
+Route::get('/createClient', [ClientController::class, 'create'])->name('client.create');
+Route::post('/storeClient', [ClientController::class, 'store'])->name('client.store');
+
 
 Route::get('/createProduto', [ProdutoController::class, 'create'])->name('produto.create');
 Route::post('/storeProduto', [ProdutoController::class, 'store'])->name('produto.store');

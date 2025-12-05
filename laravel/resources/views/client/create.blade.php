@@ -126,9 +126,9 @@
 
             <div class="form-row">
                 <div class="form-group">
-                    <label for="nomeCliente">Nome do Cliente *</label>
-                    <input type="text" id="nomeCliente" name="nomeCliente" value="{{ old('nomeCliente') }}" required maxlength="100" placeholder="João Silva">
-                    @error('nomeCliente')
+                    <label for="nome">Nome do Cliente *</label>
+                    <input type="text" id="nome" name="nome" value="{{ old('nome') }}" required maxlength="100" placeholder="João Silva">
+                    @error('nome')
                         <div class="error-text">{{ $message }}</div>
                     @enderror
                 </div>
