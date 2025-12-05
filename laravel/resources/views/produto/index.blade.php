@@ -36,15 +36,15 @@
             </tr>
         </thead>
         <tbody>
-            @forelse($produtos as $p)
+            @forelse($produtos as $produto)
                 <tr>
-                    <td>{{ $p->id }}</td>
-                    <td>{{ $p->nomeProduto }}</td>
-                    <td>{{ $p->codBarras }}</td>
-                    <td>{{ number_format($p->valorUnitario, 2, ',', '.') }}</td>
+                    <td>{{ $produto->id }}</td>
+                    <td>{{ $produto->nomeProduto }}</td>
+                    <td>{{ $produto->codBarras }}</td>
+                    <td>{{ number_format($produto->valorUnitario, 2, ',', '.') }}</td>
                     <td class="actions">
-                        <a class="btn" href="{{ route('produtos.edit', $p) }}">Editar</a>
-                        <form action="{{ route('produtos.destroy', $p) }}" method="POST" onsubmit="return confirm('Remover este produto?');" style="display:inline-block">
+                        <a class="btn" href="{{ route('produto.edit', $produto->id) }}">Editar</a>
+                        <form action="{{ route('produto.delete', $produto->id) }}" method="POST" onsubmit="return confirm('Remover este produto?');" style="display:inline-block">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger" type="submit">Remover</button>

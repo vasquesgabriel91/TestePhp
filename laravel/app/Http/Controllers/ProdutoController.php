@@ -32,13 +32,16 @@ class ProdutoController extends Controller
         return view('produto.index', compact('produtos'));
     }
 
-    public function edit(Produto $produto)
+    public function edit($id)
     {
+        $produto = Produto::findOrFail($id);
+
         return view('produto.edit', compact('produto'));
     }
 
-    public function update(Request $request, Produto $produto)
+    public function update(Request $request, $id)
     {
+    $produto = Produto::findOrFail($id);
         $validated = $request->validate([
             'nomeProduto' => 'nullable|string|max:50',
             'codBarras' => 'required|string',
