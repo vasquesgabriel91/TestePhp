@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\pedido;
+use App\Models\Pedido;
 
 class PedidosController extends Controller
 {
@@ -15,7 +15,6 @@ class PedidosController extends Controller
 
     public function store(Request $request)
     {
-        // Validar dados
         $validated = $request->validate([
             'nomeCliente' => 'required|string|max:100',
             'cpf' => 'required|string|size:11',
@@ -26,11 +25,9 @@ class PedidosController extends Controller
             'valorUnitario' => 'required|numeric',
             'qtd' => 'required|integer|min:1',
         ]);
-        $pedido = pedido::create($validated);
+        Pedido::create($validated);
 
-        return response()->json([
-            'message' => 'Pedido criado com sucesso!',
-            'pedido' => $pedido,
-        ], 201);
+        return redirect()->route('welcome')->with('success', 'Produto criado com sucesso!');
+
     }
 }

@@ -11,6 +11,7 @@ Route::get('/', function () {
 
 Route::get('/createProduto', [ProdutoController::class, 'create'])->name('produto.create');
 Route::post('/storeProduto', [ProdutoController::class, 'store'])->name('produto.store');
+Route::get('/indexProdutos', [ProdutoController::class, 'index'])->name('produto.index');
 
 Route::get('/fazerPedidos', [PedidosController::class, 'create'])->name('pedidos.create');
 Route::post('/storePedidos', [PedidosController::class, 'store'])->name('pedidos.store');

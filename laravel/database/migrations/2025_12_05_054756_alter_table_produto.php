@@ -11,14 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::table('produto', function (Blueprint $table) {
+            $table->foreignId('client_id')
+                ->nullable()
+                ->constrained('clients')
+                ->cascadeOnDelete();
+        });
     }
 
-    /**
-     * Reverse the migrations.
-     */
+
     public function down(): void
     {
-        //
+        Schema::table('produto', function (Blueprint $table) {
+            if (Schema::hasColumn('produto', 'client_id')) {
+                $table->dropForeign(['client_id']);
+                $table->dropColumn('client_id');
+            }
+        });
     }
 };
